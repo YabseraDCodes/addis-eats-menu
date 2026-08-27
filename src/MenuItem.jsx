@@ -8,7 +8,7 @@ export function MenuItem({ name, price, description, catagory }) {
             <p>{description}</p>
             <div className="food-bottom">
                 <span className="price">{price} ETB</span>
-                <span className="catagory">{catagory}</span>
+                <span className={`catagory catagory-${catagory}`}   >{catagory}</span>
             </div>
         </div>
     )
