@@ -184,12 +184,21 @@
   }
 }
 
+.j{
+  justify-items: center;
+}
+
+.Main-overlay{
+  padding: 40px 20px;
+}
 
 .Main{
-  padding: 20px;
-  padding-top: 50px;
+  width: 100%;
+  max-width: 1300px;
+  padding: 40px 20px;
 }
 
 body{
-  background-color: #c1da65;
+  /* margin: 0; */
+  background-color: #f5eee4;
 }

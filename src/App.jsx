@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Header } from './Header'
 import { MenuItem } from './MenuItem'
 import { Menu } from './Menu'
+import { Footer } from './Footer'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -14,10 +15,12 @@ function App() {
 
   return (
     <div className='j'>
-        <Header />
+      <Header />
       <div className='Main'>
-
-        <Menu/>
+        <div className='Main-overlay'>
+          <Menu />
+        </div>
+        <Footer />
       </div>
     </div>
   )
