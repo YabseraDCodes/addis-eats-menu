@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function OrderForm() {
+export function OrderForm({ totalPrice }) {
 
     const [form, setForm] = useState({
         name: '',
@@ -16,10 +16,10 @@ export function OrderForm() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (!/^(?:\+251|0)9\d{8}$/.test(form.phone)) {
-            alert("Please enter a valid phone number.")
-            return;
-        }
+        // if (!/^(?:\+251|0)9\d{8}$/.test(form.phone)) {
+        //     alert("Please enter a valid phone number.")
+        //     return;
+        // }
 
         alert("Order Submitted")
     }
@@ -40,7 +40,7 @@ export function OrderForm() {
                 <button disabled={!validPhone} type='submit'>Submit</button>
             </form>
             <div className="order-form-preview">
-                <h3>Order Information</h3>
+                <h3>Order Summary</h3>
                 <p>
                     <strong>Name:</strong> {form.name}
                 </p>
@@ -50,6 +50,7 @@ export function OrderForm() {
                 <p>
                     <strong>Area:</strong> {form.area}
                 </p>
+                <h2 className="orderTotal">Total Price: {totalPrice}</h2>
             </div>
         </div>
     )

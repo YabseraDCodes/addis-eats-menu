@@ -1,5 +1,3 @@
-import './MenuItem.css'
-
 export function Header(){
     return <div className='Header'>
         <h1 style={{color: "#f7ff8b"}}>Addis Eats</h1>

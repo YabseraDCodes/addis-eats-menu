@@ -7,15 +7,12 @@ import "./App.css";
 function App() {
   return (
     <div className="j">
-      <Header />
-
+      <Header/>
       <div className="Main">
         <div className="Main-overlay">
-          <Menu />
-          <OrderForm/>
+          <Menu/>
         </div>
-        
-        <Footer />
+        <Footer/>
       </div>
     </div>
   );
