@@ -262,3 +262,128 @@
     margin-top: 10px;
     
 }
+
+.orderTotal {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffaf2;
+    color: #3b2a20;
+    border: 1px solid #eadcc9;
+    border-radius: 12px;
+  }
+
+  .order-form-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    box-sizing: border-box;
+
+    background-color: #fffaf2;
+    color: #3b2a20;
+
+    border: 1px solid #eadcc9;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px #5a3e2b15;
+}
+
+.order-form-title {
+    margin: 0 0 25px;
+    text-align: center;
+    color: #a94f2f;
+    font-size: 26px;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.order-form label {
+    margin-top: 8px;
+    color: #5a351f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.order-form input {
+    width: 100%;
+    padding: 11px 12px;
+    box-sizing: border-box;
+
+    border: 1px solid #eadcc9;
+    border-radius: 8px;
+
+    background-color: white;
+    color: #3b2a20;
+
+    font-size: 14px;
+    outline: none;
+}
+
+.order-form-input:focus {
+    border-color: #b85c38;
+    box-shadow: 0 0 0 3px #b85c3820;
+}
+
+.order-form-input::placeholder {
+    color: #a08d7d;
+}
+
+.order-form button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 11px;
+    border: none;
+    border-radius: 9px;
+    background-color: #5a2d1c;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.order-form button:hover {
+    background-color: #a94f2f;
+    transform: translateY(-2px);
+}
+
+.order-form button:disabled {
+    background-color: #c9b9aa;
+    color: #eee;
+    cursor: not-allowed;
+}
+
+.order-form-preview {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f3e4cf;
+    color: #6b5748;
+    font-size: 13px;
+}
+
+.order-form-preview h3 {
+    margin: 0 0 12px;
+    color: #a94f2f;
+    font-size: 18px;
+}
+
+.order-form-preview p {
+    margin: 6px 0;
+    color: #6b5748;
+    font-size: 14px;
+}
+
+.order-form-preview strong {
+    color: #5a351f;
+}

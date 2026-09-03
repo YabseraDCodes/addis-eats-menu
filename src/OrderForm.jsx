@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 export function OrderForm() {
 
@@ -8,39 +8,49 @@ export function OrderForm() {
         area: ''
     })
 
-    function handleChange(e){
+    function handleChange(e) {
         setForm({
             ...form, [e.target.name]: e.target.value
-    })
-        console.log(form.name)
+        })
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
-        if(!/^(?:\+251|0)9\d{8}$/.test(form.phone)){
+        if (!/^(?:\+251|0)9\d{8}$/.test(form.phone)) {
             alert("Please enter a valid phone number.")
             return;
         }
 
         alert("Order Submitted")
     }
-    const valid = /^(?:\+251|0)9\d{8}$/.test(form.phone);
+    const validPhone = /^(?:\+251|0)9\d{8}$/.test(form.phone);
     return (
-        <div>
-            <h2>Customer Information</h2>
-            <form onSubmit={handleSubmit}>
+        <div className="order-form-container">
+            <h2 className="order-form-title">Customer Information</h2>
+            <form className="order-form" onSubmit={handleSubmit}>
                 <label>Name:</label>
-                <input name="name" type="text" 
-                    onChange={handleChange} placeholder="Enter your name" required/>
+                <input name="name" type="text" value={form.name}
+                    onChange={handleChange} placeholder="Enter your name" required />
                 <label>Phone NO:</label>
-                <input name="phone" type="text"
-                    onChange={handleChange} placeholder="Enter your phone number" required/>
+                <input name="phone" type="text" value={form.phone}
+                    onChange={handleChange} placeholder="09XXXXXXXX or +2519XXXXXXXX" required />
                 <label>Area:</label>
-                <input name="area" type="text"
-                    onChange={handleChange} placeholder="Enter your " required/>
-                <button disabled={!valid} type='submit'>Submit</button>
+                <input name="area" type="text" value={form.area}
+                    onChange={handleChange} placeholder="Enter your " required />
+                <button disabled={!validPhone} type='submit'>Submit</button>
             </form>
-            <p>name: {form.name}, phone: {form.phone}</p>
+            <div className="order-form-preview">
+                <h3>Order Information</h3>
+                <p>
+                    <strong>Name:</strong> {form.name}
+                </p>
+                <p>
+                    <strong>Phone:</strong> {form.phone}
+                </p>
+                <p>
+                    <strong>Area:</strong> {form.area}
+                </p>
+            </div>
         </div>
     )
 }

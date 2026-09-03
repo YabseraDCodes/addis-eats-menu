@@ -3,7 +3,7 @@ import { Card } from "./Card";
 import { useState } from "react";
 import "./MenuItem.css";
 
-export function Dish({ name, price, description, category, spicy, currency = "ETB" }) {
+export function Dish({ name, price, description, category, spicy, currency = "ETB", totalPrice, makeTotal }) {
   const [count, setCount] = useState(0);
   return (
     <Card>
@@ -23,7 +23,7 @@ export function Dish({ name, price, description, category, spicy, currency = "ET
       </div>
       <div className="addItem">
         <p>Quantity: {count}</p>
-        <button className="addBtn" onClick={() => setCount(count + 1)}>Add</button>
+        <button className="addBtn" onClick={() => {setCount(count + 1); makeTotal(totalPrice + price)}}>Add</button>
       </div>
     </Card>
   );

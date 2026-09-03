@@ -1,7 +1,9 @@
-export function DishList({filter}){
+import { Dish } from "./Dish"
+
+export function DishList({filter, total, setTotal}){
     return (
         <div className="items">
-          {filteredMenu.map((dish) => (
+          {filter.map((dish) => (
             <Dish
               key={dish.id}
               name={dish.name}
@@ -9,6 +11,8 @@ export function DishList({filter}){
               description={dish.description}
               category={dish.category}
               spicy={dish.spicy}
+              totalPrice = {total}
+              makeTotal = {setTotal}
             />
           ))}
         </div>

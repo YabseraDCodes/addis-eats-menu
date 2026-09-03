@@ -72,14 +72,9 @@ export const menu = [
     },
   ];
 
-const mainDish = menu.filter((dish) => dish.catagory === "MAIN");
-const drink = menu.filter((dish) => dish.catagory === "DRINK");
-const breakfast = menu.filter((dish) => dish.catagory === "BREAKFAST");
-
-  
 export function Menu() {
-  
-
+  const [count, setCount] = useState(0);
+  const [total, setTotal] = useState(0);
   const [category, setCategory] = useState("ALL");
   const filteredMenu =
     category === "ALL"
@@ -95,19 +90,9 @@ export function Menu() {
           No dishes found in the {category} category.
         </p>
       ) : (
-        <div className="items">
-          {filteredMenu.map((dish) => (
-            <Dish
-              key={dish.id}
-              name={dish.name}
-              price={dish.price}
-              description={dish.description}
-              category={dish.category}
-              spicy={dish.spicy}
-            />
-          ))}
-        </div>
+        <DishList filter={filteredMenu} total={total} setTotal={setTotal}/>
       )}
+      <h2 className="orderTotal">Order Total: {total}</h2>
     </div>
   );
 }
