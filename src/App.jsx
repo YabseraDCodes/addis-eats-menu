@@ -1,29 +1,24 @@
-import { useState } from 'react'
-import { Header } from './Header'
-import { MenuItem } from './MenuItem'
-import { Menu } from './Menu'
-import { Footer } from './Footer'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-
+import { Header } from "./Header";
+import { Menu } from "./Menu";
+import { Footer } from "./Footer";
+import { OrderForm } from "./OrderForm";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-
   return (
-    <div className='j'>
+    <div className="j">
       <Header />
-      <div className='Main'>
-        <div className='Main-overlay'>
+
+      <div className="Main">
+        <div className="Main-overlay">
           <Menu />
+          <OrderForm/>
         </div>
+        
         <Footer />
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

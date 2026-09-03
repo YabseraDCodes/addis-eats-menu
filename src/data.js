@@ -1,9 +1,3 @@
-import { useState } from "react";
-import { Dish } from "./Dish";
-// import { menu } from "./data";
-import { CatagoryBar } from "./CatagoryBar";
-import { DishList } from "./DishList";
-
 export const menu = [
     {
       id: 1,
@@ -71,43 +65,4 @@ export const menu = [
       spicy: false,
     },
   ];
-
-const mainDish = menu.filter((dish) => dish.catagory === "MAIN");
-const drink = menu.filter((dish) => dish.catagory === "DRINK");
-const breakfast = menu.filter((dish) => dish.catagory === "BREAKFAST");
-
   
-export function Menu() {
-  
-
-  const [category, setCategory] = useState("ALL");
-  const filteredMenu =
-    category === "ALL"
-      ? menu
-      : menu.filter((dish) => dish.category === category);
-
-  return (
-    <div>
-    <CatagoryBar selectedCatagory={category} selectCatagory={setCategory}/>
-
-      {filteredMenu.length === 0 ? (
-        <p className="empty-state">
-          No dishes found in the {category} category.
-        </p>
-      ) : (
-        <div className="items">
-          {filteredMenu.map((dish) => (
-            <Dish
-              key={dish.id}
-              name={dish.name}
-              price={dish.price}
-              description={dish.description}
-              category={dish.category}
-              spicy={dish.spicy}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}

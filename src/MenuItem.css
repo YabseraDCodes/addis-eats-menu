@@ -6,13 +6,6 @@
     align-items: center;
 }
 
-/* @media (max-width: 380px) {
-    .items {
-        grid-template-columns: repeat(1, 1fr);
-    }
-} */
-
-
 @media (min-width: 400px) {
     .items {
         grid-template-columns: repeat(2, 1fr);
@@ -34,7 +27,7 @@
 .food-card {
     background-color: #fffaf2;
     color: #3b2a20;
-    height: 200px;
+    height: 100%;
     width: 100%;
     max-width: 250px;
     min-height: 200px;
@@ -162,7 +155,8 @@
     margin-top: 0;
 }
 
-.footer-brand p, .footer-brand h2 {
+.footer-brand p,
+.footer-brand h2 {
     color: #111827;
     line-height: 1.6;
 }
@@ -194,7 +188,6 @@
     font-size: 14px;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
     .footer-container {
         grid-template-columns: 1fr;
@@ -205,4 +198,67 @@
     .footer-social {
         align-items: center;
     }
+}
+
+.empty-state {
+    text-align: center;
+    color: #6b5748;
+    font-size: 18px;
+    padding: 40px;
+}
+
+.spicy-badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background-color: #d9534f;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.category-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.category-filter button {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    background-color: #f3e4cf;
+    color: #5a351f;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.category-filter button:hover {
+    background-color: #e8b86d;
+}
+
+.category-filter .active {
+    background: #5a351f;
+    color: #f3e4cf;
+}
+
+.addBtn {
+    width: 70px;
+    border: none;
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 9px;
+    background-color: #5a2d1c;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.addItem{
+    margin-top: 10px;
+    
 }
