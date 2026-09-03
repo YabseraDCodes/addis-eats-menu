@@ -18,7 +18,11 @@ A static Ethiopian café menu built with React and Vite.
 - React keys
 - Category-based menu items
 - Responsive CSS Grid layout
-- Custom CSS styling
+- `useState`
+- Category-based menu filtering
+- Add dishes and calculate order total
+- Controlled delivery form
+- TeleBirr number validation
 
 ## How to Run
 
@@ -37,4 +41,4 @@ npm run dev
 
 Addis Café is a frontend class project created to practice fundamental React concepts while building a simple Ethiopian café menu.
 
-The project demonstrates how reusable components, props, array methods and responsive CSS can be combined to create a clean user interface.
+The project uses props and useState to create an interactive menu with category filtering, dish ordering, a running ETB total and a validated TeleBirr delivery form.
