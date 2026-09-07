@@ -12,17 +12,28 @@ export function Menu() {
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const searchRef = useRef(null);
 
   useEffect(() => {
+    if (!loading) {
+      searchRef.current?.focus();
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    const ctrl = new AbortController();
     async function loadData() {
       try {
-        const response = await fetch(`dishes.json?category?=${category}`);
+        const response = await fetch(`dishes.json?category?=${category}`, { signal: ctrl.signal });
         if (!response.ok) {
           throw new Error("Unable to load the menu");
         }
         const data = await response.json();
         setMenu(data.items);
       } catch (e) {
+        if (e.name === "AbortError") {
+          return;
+        }
         console.error("Error Fetching data: ", e);
         setError(e.message);
       } finally {
@@ -30,6 +41,7 @@ export function Menu() {
       }
     }
     loadData();
+    return () => ctrl.abort();
   }, [category])
 
   if (loading) {
@@ -44,6 +56,8 @@ export function Menu() {
 
   return (
     <div>
+      <input className="search-input" ref={searchRef} type="search" />
+
       <CatagoryBar selectedCatagory={category} selectCatagory={setCategory} />
 
       {filteredMenu.length === 0 ? (
