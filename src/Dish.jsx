@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 import { Card } from "./Card";
 import { useState } from "react";
+import { useContext, createContext } from "react"
+import {cartContext} from "./App.jsx"
+
 
 export function Dish({ name, price, description, category, spicy, currency = "ETB", totalPrice, makeTotal }) {
   const [count, setCount] = useState(0);
+  const {cart, dispatch} = useContext(cartContext);
+
   return (
     <Card>
       <div>
@@ -21,8 +26,8 @@ export function Dish({ name, price, description, category, spicy, currency = "ET
         </span>
       </div>
       <div className="addItem">
-        <p>Quantity: {count}</p>
-        <button className="addBtn" onClick={() => {setCount(count + 1); makeTotal(totalPrice + price)}}>ADD</button>
+        <p>Quantity: {cart.length}</p>
+        <button className="addBtn" onClick={() => dispatch({type: "add", content: {name, price, description, category, spicy, currency, totalPrice}})}>ADD</button>
       </div>
     </Card>
   );
