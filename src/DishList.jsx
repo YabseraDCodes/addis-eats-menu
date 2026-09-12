@@ -6,6 +6,7 @@ export function DishList({filter, total, setTotal}){
           {filter.map((dish) => (
             <Dish
               key={dish.id}
+              id={dish.id}
               name={dish.name}
               price={dish.price}
               description={dish.description}

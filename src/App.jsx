@@ -10,7 +10,7 @@ function cartReducer(state, dispatch) {
     case "add":
       return [...state, dispatch.content];
     case "remove":
-      return [state.filter((item) => item.name !== dispatch.content.name)];
+      return state.filter((item) => item.id !== dispatch.content);
     case "clear":
       return [];
     default:
@@ -23,10 +23,11 @@ export const cartContext = createContext();
 
 function App() {
   const [cart, dispatch] = useReducer(cartReducer, []);
+  const total = cart.reduce((sum,item)=> sum + item.price || 0, 0);
   
 
   return (
-    <cartContext.Provider value={{ cart, dispatch }}>
+    <cartContext.Provider value={{ cart, dispatch, total }}>
       <div className="j">
         <Header />
         <div className="Main">

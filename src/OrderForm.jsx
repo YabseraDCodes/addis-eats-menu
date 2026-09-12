@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { cartContext } from './App';
 
 export function OrderForm({ totalPrice }) {
+    const { cart, dispatch, total } = useContext(cartContext)
 
     const [form, setForm] = useState({
         name: '',
@@ -16,11 +18,6 @@ export function OrderForm({ totalPrice }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        // if (!/^(?:\+251|0)9\d{8}$/.test(form.phone)) {
-        //     alert("Please enter a valid phone number.")
-        //     return;
-        // }
-
         alert("Order Submitted")
     }
     const validPhone = /^(?:\+251|0)9\d{8}$/.test(form.phone);
@@ -50,7 +47,42 @@ export function OrderForm({ totalPrice }) {
                 <p>
                     <strong>Area:</strong> {form.area}
                 </p>
-                <h2 className="orderTotal">Total Price: {totalPrice}</h2>
+                {cart.length === 0 ? (
+                    <p>Your cart is empty.</p>
+                ) : (
+                    <>
+                        {cart.map((item, index) => (
+                            <div className="checkout-item" key={item.id ?? index}>
+                                <div>
+                                    <strong>{item.name}</strong>
+
+                                    <p>{item.description}</p>
+
+                                    {item.spicy && (
+                                        <span className="spicy-badge">Spicy</span>
+                                    )}
+                                </div>
+
+                                <strong>
+                                    {item.currency} {total}
+                                </strong>
+
+                                <button type="button" onClick={() => dispatch({ type: 'remove', content: item.id })}>
+                                    Remove
+                                </button>
+                            </div>
+                        ))}
+
+                        <h2 className="orderTotal">
+                            Total Price: {total}
+                        </h2>
+
+                        <button type="button" onClick={() => dispatch({ type: 'clear' })}>
+                            Clear Cart
+                        </button>
+                    </>
+                )}
+                {/* <h2 className="orderTotal">Total Price: {total}</h2> */}
             </div>
         </div>
     )
