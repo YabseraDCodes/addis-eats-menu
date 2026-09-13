@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Card } from "./Card";
 import { useState } from "react";
 import { useContext, createContext } from "react"
-import {cartContext} from "./App.jsx"
+import {cartContext} from "./CartProvider.jsx"
 
 
 export function Dish({ id, name, price, description, category, spicy, currency = "ETB", totalPrice, makeTotal }) {
@@ -28,9 +28,9 @@ export function Dish({ id, name, price, description, category, spicy, currency =
       <div className="addItem">
         {/* <p>Quantity: {cart.length}</p> */}
         {cart.some((item)=> item.id === id) ? 
-        (<button className="addBtn" onClick={() => dispatch({type: "remove", content: { id, name, price, description, category, spicy, currency, totalPrice}})}>
+        (<button className="addBtn" onClick={() => dispatch({type: "remove", content:  id})}>
          Remove from Cart</button>)
-         : (<button className="addBtn" onClick={() => dispatch({type: "add", content: {id, name, price, description, category, spicy, currency, totalPrice}})}>
+         : (<button className="addBtn" onClick={() => dispatch({type: "add", content: {id, name, price, description, category, spicy, currency}})}>
           Add to Cart </button>)}
         {/* <button className="addBtn" onClick={() => dispatch({type: "add", content: {name, price, description, category, spicy, currency, totalPrice}})}>{cart.some((item)=> item.name === name) ? "REMOVE" : "ADD"}</button> */}
       </div>

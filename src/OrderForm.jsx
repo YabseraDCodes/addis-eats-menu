@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { cartContext } from './App';
+import { cartContext } from './CartProvider';
 
 export function OrderForm({ totalPrice }) {
     const { cart, dispatch, total } = useContext(cartContext)
@@ -64,7 +64,7 @@ export function OrderForm({ totalPrice }) {
                                 </div>
 
                                 <strong>
-                                    {item.currency} {total}
+                                    {item.currency} {item.price}
                                 </strong>
 
                                 <button type="button" onClick={() => dispatch({ type: 'remove', content: item.id })}>
@@ -82,7 +82,6 @@ export function OrderForm({ totalPrice }) {
                         </button>
                     </>
                 )}
-                {/* <h2 className="orderTotal">Total Price: {total}</h2> */}
             </div>
         </div>
     )
