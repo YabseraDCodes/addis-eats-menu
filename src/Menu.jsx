@@ -55,7 +55,7 @@ export function Menu() {
       ) : (
         <DishList filter={filteredMenu} total={total} setTotal={setTotal} />
       )}
-      <OrderForm totalPrice={total} />
+      {/* <OrderForm totalPrice={total} /> */}
     </div>
   );
 }

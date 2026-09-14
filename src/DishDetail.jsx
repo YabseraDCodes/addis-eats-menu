@@ -1,9 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "./useFetch";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function DishDetail() {
+    const navigate = useNavigate();
     const { id } = useParams();
 
     const { data, loading, error } = useFetch("/dishes.json");
@@ -19,6 +20,9 @@ function DishDetail() {
     const menu = data?.items ?? [];
 
     const meal = menu.find((item) => String(item.id) === id);
+    function traverse(){
+        navigate("/", {replace: true});
+    }
 
     return (
         <div>
@@ -39,10 +43,11 @@ function DishDetail() {
                     {meal.category}
                 </span>
             </div>
-            <Link to="/">{`<- `}Back to Menu</Link>
+            {/* <Link to="/">{`<- `}Back to Menu</Link> */}
+            <button onClick={traverse}>Back</button>
 
-            <NavLink to="/"
-                className={({ isActive }) => isActive ? "on" : ""}>Back</NavLink>
+            {/* <NavLink to="/"
+                className={({ isActive }) => isActive ? "on" : ""}>Back</NavLink> */}
         </div>
     );
 }

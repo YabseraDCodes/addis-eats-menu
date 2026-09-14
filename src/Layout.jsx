@@ -11,7 +11,6 @@ function Layout() {
         <Header />
         <div className="Main">
           <div className="Main-overlay">
-            <Link to="/sec">sec</Link>
             <Outlet/>
           </div>
           <Footer />
