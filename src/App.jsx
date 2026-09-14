@@ -16,21 +16,14 @@ function App() {
 
   return (
     <CartProvider>
-      <div className="j">
-        <Header />
-        <div className="Main">
-          <div className="Main-overlay">
             <Routes>
-              <Route path="/" element={<Layout />} />
-              <Route index element={<Menu />} />
-              <Route path="/sec" element={<Secret />} />
-              <Route path="/Menu/:id" element={<DishDetail/>}/>
-              <Route path="/*" element={<NotFound/>}/>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Menu />} />
+                <Route path="/sec" element={<Secret />} />
+                <Route path="Menu/:id" element={<DishDetail />} />
+                <Route path="/*" element={<NotFound />} />
+              </Route>
             </Routes>
-          </div>
-          <Footer />
-        </div>
-      </div>
     </CartProvider>
 
   );

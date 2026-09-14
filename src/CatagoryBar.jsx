@@ -4,7 +4,7 @@ export function CatagoryBar({selectedCatagory, selectCatagory}){
     return (
     <div className="category-filter">
         {catagory.map((item)=>(
-            <button key={item} className={selectedCatagory === item ? 'active' : ''} onClick={()=> selectCatagory(item)}>{item}</button>
+            <button key={item} className={selectedCatagory === item ? 'active' : ''} onClick={()=> selectCatagory({category: item})}>{item}</button>
         ))}
     </div>
     )

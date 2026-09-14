@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "./useFetch";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function DishDetail() {
     const { id } = useParams();
@@ -18,7 +18,7 @@ function DishDetail() {
 
     const menu = data?.items ?? [];
 
-    const meal = menu.find((item) => String(item.id) === String(id));
+    const meal = menu.find((item) => String(item.id) === id);
 
     return (
         <div>
@@ -32,7 +32,7 @@ function DishDetail() {
 
             <div className="food-bottom">
                 <span className="price">
-                  Price:  {meal.price} {meal.currency}
+                    Price:  {meal.price} {meal.currency}
                 </span>
 
                 <span className={`catagory catagory-${meal.category}`}>
@@ -40,6 +40,9 @@ function DishDetail() {
                 </span>
             </div>
             <Link to="/">{`<- `}Back to Menu</Link>
+
+            <NavLink to="/"
+                className={({ isActive }) => isActive ? "on" : ""}>Back</NavLink>
         </div>
     );
 }

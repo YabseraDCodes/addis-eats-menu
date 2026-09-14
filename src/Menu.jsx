@@ -1,15 +1,20 @@
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef, useMemo, useContext } from "react";
 import { Dish } from "./Dish";
 // import { menu } from "./data";
 import { CatagoryBar } from "./CatagoryBar";
 import { DishList } from "./DishList";
 import { OrderForm } from "./OrderForm";
 import { useFetch } from "./useFetch";
+import { useSearchParams } from "react-router-dom";
 
 export function Menu() {
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
-  const [category, setCategory] = useState("ALL");
+  // const [category, setCategory] = useState("ALL");
+  //using query
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category") ?? "ALL";
+
   // const [menu, setMenu] = useState([]);
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
@@ -41,7 +46,7 @@ export function Menu() {
     <div>
       <input className="search-input" ref={searchRef} type="search" />
 
-      <CatagoryBar selectedCatagory={category} selectCatagory={setCategory} />
+      <CatagoryBar selectedCatagory={category} selectCatagory={setParams} />
 
       {filteredMenu.length === 0 ? (
         <p className="empty-state">
