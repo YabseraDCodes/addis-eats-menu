@@ -600,3 +600,27 @@ code {
   margin-left: 6px;
   vertical-align: top;
 }
+
+
+.viewDetails {
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 8px;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background-color: #e8b86d;
+  color: #5a2d1c;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.viewDetails:hover {
+  background-color: #5a2d1c;
+  color: white;
+}
+
+.viewDetails:active {
+  transform: scale(0.97);
+}

@@ -3,6 +3,7 @@ import { Card } from "./Card";
 import { useState } from "react";
 import { useContext, createContext } from "react"
 import {cartContext} from "./CartProvider.jsx"
+import { Link } from "react-router-dom";
 
 
 export function Dish({ id, name, price, description, category, spicy, currency = "ETB", totalPrice, makeTotal }) {
@@ -32,7 +33,7 @@ export function Dish({ id, name, price, description, category, spicy, currency =
          Remove from Cart</button>)
          : (<button className="addBtn" onClick={() => dispatch({type: "add", content: {id, name, price, description, category, spicy, currency}})}>
           Add to Cart </button>)}
-        {/* <button className="addBtn" onClick={() => dispatch({type: "add", content: {name, price, description, category, spicy, currency, totalPrice}})}>{cart.some((item)=> item.name === name) ? "REMOVE" : "ADD"}</button> */}
+          <Link className="viewDetails" to={`/Menu/${id}`}>View Details</Link>
       </div>
     </Card>
   );
