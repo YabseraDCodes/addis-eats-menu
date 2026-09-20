@@ -6,11 +6,11 @@ function Login({ user, setUser }) {
         return (
             <div className="login-page">
                 <div className="login-container">
-                <div className="login-header">
-                    <h2>Already Signed In</h2>
-                    <p>You are already signed in as {user}.</p>
-                    <button className="viewDetails" onClick={() => navigate("/")}>Go Home</button>
-                    <button className="viewDetails" onClick={() => setUser(null)}>Sign Out </button>
+                    <div className="login-header">
+                        <h2>Already Signed In</h2>
+                        <p>You are already signed in as {user}.</p>
+                        <button className="viewDetails" onClick={() => navigate("/")}>Go Home</button>
+                        <button className="viewDetails" onClick={() => setUser(null)}>Sign Out </button>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@ function Login({ user, setUser }) {
     const location = useLocation();
     const from = location?.state?.from?.pathname || "/"
 
-    const [form, setForm] = useState({email: "", password: ""});
+    const [form, setForm] = useState({ email: "", password: "" });
 
     function handleChange(e) {
         setForm({ ...form, [e.target.name]: e.target.value, });
