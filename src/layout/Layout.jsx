@@ -1,9 +1,9 @@
 import React from 'react'
-import { Header } from "./components/Header";
-import { Menu } from "./pages/Menu";
-import { Footer } from "./components/Footer";
+import { Header } from "./Header";
+import { Menu } from "../menu/Menu";
+import { Footer } from "./Footer";
 import { Outlet, Link } from 'react-router-dom';
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "../errors/ErrorBoundary";
 
 
 function Layout() {

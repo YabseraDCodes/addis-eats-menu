@@ -1,20 +1,20 @@
-import { Header } from "./components/Header";
-import { Menu } from "./pages/Menu";
-import { Footer } from "./components/Footer";
-import { OrderForm } from "./pages/OrderForm";
-import { CartProvider } from "./contexts/CartProvider";
+import { Header } from "./layout/Header";
+import { Menu } from "./menu/Menu";
+import { Footer } from "./layout/Footer";
+import { OrderForm } from "./checkout/OrderForm";
+import { CartProvider } from "./cart/CartProvider";
 import { Routes, Route } from "react-router-dom";
 import Secret from "./Secret";
-import NotFound from "./pages/NotFound";
-import DishDetail from "./components/DishDetail";
+import NotFound from "./errors/NotFound";
+import DishDetail from "./menu/DishDetail";
 import "./App.css";
-import Layout from "./Layout";
-import Cart from "./components/Cart";
-import Checkout from "./pages/Checkout";
-import Login from "./pages/Login";
+import Layout from "./layout/Layout";
+import Cart from "./cart/Cart";
+import Checkout from "./checkout/Checkout";
+import Login from "./auth/Login";
 import RequireAuth from "./auth/RequireAuth";
 import { useState } from "react";
-import {Home} from "./pages/Home"
+import {Home} from "./home/Home"
 
 function App() {
 

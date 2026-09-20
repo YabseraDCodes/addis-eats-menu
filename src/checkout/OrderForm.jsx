@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { cartContext } from '../contexts/CartProvider';
+import { cartContext } from '../cart/CartProvider';
 
 export function OrderForm({ totalPrice }) {
     const { cart, dispatch, total } = useContext(cartContext)

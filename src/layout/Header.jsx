@@ -1,5 +1,5 @@
 import { useContext, createContext } from "react"
-import { cartContext } from "../contexts/CartProvider.jsx"
+import { cartContext } from "../cart/CartProvider.jsx"
 import { Navigation } from "./Navigation.jsx"
 
 export function Header() {
