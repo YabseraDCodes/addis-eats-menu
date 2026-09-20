@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 import { Card } from "./Card";
 import { useState } from "react";
 import { useContext, createContext } from "react"
-import {cartContext} from "./CartProvider.jsx"
+import { cartContext } from "./CartProvider.jsx"
 import { Link } from "react-router-dom";
 
 
 export function Dish({ id, name, price, description, category, spicy, currency = "ETB", totalPrice, makeTotal }) {
   const [count, setCount] = useState(0);
-  const {cart, dispatch} = useContext(cartContext);
+  const { cart, dispatch } = useContext(cartContext);
 
   return (
     <Card>
@@ -16,7 +16,7 @@ export function Dish({ id, name, price, description, category, spicy, currency =
         <h3>{name}</h3>
         <p>{description}</p>
 
-        {spicy && <span className="spicy-badge">Spicy</span>}
+        {spicy && <span className="spicy-badge"> 🌶 Spicy</span>}
       </div>
       <div className="food-bottom">
         <span className="price">
@@ -28,12 +28,12 @@ export function Dish({ id, name, price, description, category, spicy, currency =
       </div>
       <div className="item-actions">
         {/* <p>Quantity: {cart.length}</p> */}
-        {cart.some((item)=> item.id === id) ? 
-        (<button className="addBtn" onClick={() => dispatch({type: "remove", content:  id})}>
-         Remove from Cart</button>)
-         : (<button className="addBtn" onClick={() => dispatch({type: "add", content: {id, name, price, description, category, spicy, currency}})}>
-          Add to Cart </button>)}
-          <Link className="viewDetails" to={`/Menu/${id}`}>View Details</Link>
+        {cart.some((item) => item.id === id) ?
+          (<button className="removeBtn" onClick={() => dispatch({ type: "remove", content: id })}>
+            Remove from Cart</button>)
+          : (<button className="addBtn" onClick={() => dispatch({ type: "add", content: { id, name, price, description, category, spicy, currency } })}>
+            Add to Cart </button>)}
+        <Link className="viewDetails" to={`/Menu/${id}`}>View Details</Link>
       </div>
     </Card>
   );

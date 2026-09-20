@@ -20,35 +20,64 @@ function DishDetail() {
     const menu = data?.items ?? [];
 
     const meal = menu.find((item) => String(item.id) === id);
-    function traverse(){
-        navigate("/", {replace: true});
+    function traverse() {
+        navigate("/", { replace: true });
     }
 
     return (
-        <div>
-            <div>
-                <h3>{meal.name}</h3>
-                <p>{meal.description}</p>
-                {meal.spicy && (
-                    <span className="spicy-badge">Spicy</span>
-                )}
-            </div>
+        <main className="dish-detail-page">
+            <section className="dish-detail-card">
+                <div className="dish-detail-header">
+                    <div className="dish-category">
+                        <span className={`catagory catagory-${meal.category}`}>
+                            {meal.category}
+                        </span>
 
-            <div className="food-bottom">
-                <span className="price">
-                    Price:  {meal.price} {meal.currency}
-                </span>
+                        {meal.spicy && (
+                            <span className="spicy-badge">
+                                🌶 Spicy
+                            </span>
+                        )}
+                    </div>
 
-                <span className={`catagory catagory-${meal.category}`}>
-                    {meal.category}
-                </span>
-            </div>
-            {/* <Link to="/">{`<- `}Back to Menu</Link> */}
-            <button onClick={traverse}>Back</button>
+                    <h1>{meal.name}</h1>
 
-            {/* <NavLink to="/"
-                className={({ isActive }) => isActive ? "on" : ""}>Back</NavLink> */}
-        </div>
+                    <p className="dish-detail-description">
+                        {meal.description}
+                    </p>
+                </div>
+
+                <div className="dish-detail-divider"></div>
+
+                <div className="dish-detail-info">
+                    <div className="dish-info-box">
+                        <span className="dish-info-label">Price</span>
+
+                        <span className="dish-detail-price">
+                            {meal.price} {meal.currency}
+                        </span>
+                    </div>
+
+                    <div className="dish-info-box">
+                        <span className="dish-info-label">Category</span>
+
+                        <span className="dish-info-value">
+                            {meal.category}
+                        </span>
+                    </div>
+                </div>
+
+                <div className="dish-detail-actions">
+                    <button
+                        className="back-menu-btn"
+                        onClick={traverse}
+                    >
+                        ← Back to Menu
+                    </button>
+                </div>
+
+            </section>
+        </main>
     );
 }
 
