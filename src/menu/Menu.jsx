@@ -7,7 +7,7 @@ import { OrderForm } from "../checkout/OrderForm";
 import { useFetch } from "../hooks/useFetch";
 import { useSearchParams } from "react-router-dom";
 
-export function Menu() {
+function Menu() {
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
   // const [category, setCategory] = useState("ALL");
@@ -59,3 +59,5 @@ export function Menu() {
     </div>
   );
 }
+
+export default Menu

@@ -1,5 +1,5 @@
+import React from "react";
 import { Header } from "./layout/Header";
-import { Menu } from "./menu/Menu";
 import { Footer } from "./layout/Footer";
 import { OrderForm } from "./checkout/OrderForm";
 import { CartProvider } from "./cart/CartProvider";
@@ -15,6 +15,8 @@ import Login from "./auth/Login";
 import RequireAuth from "./auth/RequireAuth";
 import { useState } from "react";
 import {Home} from "./home/Home"
+import Menu from "./menu/Menu";
+const LazyMenu = React.lazy(()=> import("./menu/Menu")) 
 
 function App() {
 
@@ -25,7 +27,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="/Menu" element={<Menu />} />
+                <Route path="/Menu" element={
+                  <React.Suspense fallback="Loading...">
+                    <LazyMenu/>
+                  </React.Suspense>
+                  } />
                 <Route path="Menu/:id" element={<DishDetail />} />
                 <Route path="Cart" element={<Cart/>} />
                 <Route path="Checkout" element={<RequireAuth user={user}><Checkout/></RequireAuth>}/>

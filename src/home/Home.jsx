@@ -32,7 +32,7 @@ export function Home() {
         <div className="hero-content">
           <p className="hero-eyebrow">WELCOME TO ADDIS EATS</p>
           <h1>
-            Authentic Ethiopian food,
+             Ethiopian food,
             <span> made with care.</span>
           </h1>
 

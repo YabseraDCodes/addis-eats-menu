@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from "./Header";
-import { Menu } from "../menu/Menu";
+import  Menu  from "../menu/Menu";
 import { Footer } from "./Footer";
 import { Outlet, Link } from 'react-router-dom';
 import ErrorBoundary from "../errors/ErrorBoundary";
