@@ -1,4 +1,5 @@
 import React from 'react'
+import { Suspense } from 'react';
 import { Header } from "./Header";
 import  Menu  from "../menu/Menu";
 import { Footer } from "./Footer";
@@ -15,7 +16,9 @@ function Layout() {
         <div className="Main">
           <div className="Main-overlay">
             <ErrorBoundary>
+            <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
+              </Suspense>
             </ErrorBoundary>
           </div>
           <Footer />

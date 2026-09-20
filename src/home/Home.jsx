@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { SpecialDish } from "./SpecialDish";
 
-export function Home() {
+function Home() {
   const { data, loading, error } = useFetch("dishes.json");
 
   if (loading) {
@@ -84,3 +84,5 @@ export function Home() {
     </main>
   );
 }
+
+export default Home;
