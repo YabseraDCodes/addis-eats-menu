@@ -26,7 +26,7 @@ export function Dish({ id, name, price, description, category, spicy, currency =
           {category}
         </span>
       </div>
-      <div className="addItem">
+      <div className="item-actions">
         {/* <p>Quantity: {cart.length}</p> */}
         {cart.some((item)=> item.id === id) ? 
         (<button className="addBtn" onClick={() => dispatch({type: "remove", content:  id})}>
