@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef, useMemo, useContext } from "react";
-import { Dish } from "./Dish";
+import { Dish } from "../components/Dish";
 // import { menu } from "./data";
-import { CatagoryBar } from "./CatagoryBar";
-import { DishList } from "./DishList";
+import { CatagoryBar } from "../components/CatagoryBar";
+import { DishList } from "../components/DishList";
 import { OrderForm } from "./OrderForm";
-import { useFetch } from "./useFetch";
+import { useFetch } from "../hooks/useFetch";
 import { useSearchParams } from "react-router-dom";
 
 export function Menu() {

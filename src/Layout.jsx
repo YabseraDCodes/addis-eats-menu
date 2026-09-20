@@ -1,7 +1,7 @@
 import React from 'react'
-import { Header } from "./Header";
-import { Menu } from "./Menu";
-import { Footer } from "./Footer";
+import { Header } from "./components/Header";
+import { Menu } from "./pages/Menu";
+import { Footer } from "./components/Footer";
 import { Outlet, Link } from 'react-router-dom';
 import ErrorBoundary from "./ErrorBoundary";
 

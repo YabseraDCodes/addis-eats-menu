@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { cartContext } from "./CartProvider";
+import { cartContext } from "../contexts/CartProvider";
 import { Navigate, useLocation } from "react-router-dom";
 
 function Checkout() {

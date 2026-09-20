@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import { Card } from "./Card";
+import { Card } from "./Card.jsx";
 import { useState } from "react";
 import { useContext, createContext } from "react"
-import { cartContext } from "./CartProvider.jsx"
+import { cartContext } from "../contexts/CartProvider.jsx"
 import { Link } from "react-router-dom";
 
 

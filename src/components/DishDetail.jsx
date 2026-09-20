@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useFetch } from "./useFetch";
+import { useFetch } from "../hooks/useFetch";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function DishDetail() {
