@@ -15,7 +15,6 @@ function useForm(initialValues, validate) {
 
         setValues(newValues);
 
-        // Validate while typing
         setErrors(validate(newValues));
     }
 
@@ -37,14 +36,12 @@ function useForm(initialValues, validate) {
 
         setErrors(validationErrors);
 
-        // Show errors for all fields after submit
         setTouched({
             name: true,
             phone: true,
             address: true,
         });
 
-        // Only submit if there are no errors
         if (Object.keys(validationErrors).length === 0) {
             onSubmit(values);
         }
