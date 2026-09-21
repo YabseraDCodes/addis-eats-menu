@@ -1,26 +1,28 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "../cart/CartProvider";
-import { Navigate, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { validate } from "./validate";
 
 function Checkout() {
     const { cart, total } = useContext(cartContext);
 
-    const [form, setForm] = useState({ name: "",   phone: "", address: ""});
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        defaultValues: {
+            name: "",
+            phone: "",
+            address: "",
+        },
+    });
 
-    function handleChange(e) {
-        setForm({ ...form, [e.target.name]: e.target.value});
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-
-        console.log("Delivery details:", form);
+    function onSubmit(data) {
+        console.log("Delivery details:", data);
         alert("Order submitted successfully!");
-
     }
-
-    const validPhone = /^(?:\+251|0)9\d{8}$/.test(form.phone);
 
     return (
         <div className="checkout-page">
@@ -33,36 +35,63 @@ function Checkout() {
                 <div className="checkout-content">
                     <form
                         className="checkout-form"
-                        onSubmit={handleSubmit}
+                        onSubmit={handleSubmit(onSubmit)}
                     >
-                        <label>Name</label>
-                        <input id="name"  name="name" type="text" value={form.name}onChange={handleChange}
-                            placeholder="Enter your name" required/>
+                        <label htmlFor="name">Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            placeholder="Enter your name"
+                            {...register("name", {
+                                validate: (_, formValues) => {
+                                    const errors = validate(formValues);
+                                    return errors.name || true;
+                                },
+                            })}
+                        />
 
-                        <label>Phone Number</label>
+                        {errors.name && (
+                            <p className="error">{errors.name.message}</p>
+                        )}
+
+                        <label htmlFor="phone">Phone Number</label>
                         <input
                             id="phone"
-                            name="phone"
                             type="tel"
-                            value={form.phone}
-                            onChange={handleChange}
                             placeholder="09XXXXXXXX or +2519XXXXXXXX"
-                            required
+                            {...register("phone", {
+                                validate: (_, formValues) => {
+                                    const errors = validate(formValues);
+                                    return errors.phone || true;
+                                },
+                            })}
                         />
+
+                        {errors.phone && (
+                            <p className="error">{errors.phone.message}</p>
+                        )}
 
                         <label htmlFor="address">Delivery Address</label>
                         <textarea
                             id="address"
-                            name="address"
-                            value={form.address}
-                            onChange={handleChange}
-                            placeholder="Enter your delivery address"
                             rows="4"
-                            required
+                            placeholder="Enter your delivery address"
+                            {...register("address", {
+                                validate: (_, formValues) => {
+                                    const errors = validate(formValues);
+                                    return errors.address || true;
+                                },
+                            })}
                         />
 
+                        {errors.address && (
+                            <p className="error">{errors.address.message}</p>
+                        )}
+
                         <button
-                            type="submit" disabled={ !validPhone || !form.name || !form.area || !form.address ||cart.length === 0 }>
+                            type="submit"
+                            disabled={cart.length === 0}
+                        >
                             Place Order
                         </button>
                     </form>
@@ -89,7 +118,8 @@ function Checkout() {
                                             <span>{item.name}</span>
 
                                             <strong>
-                                                ETB {Number(item.price).toFixed(2)}
+                                                ETB{" "}
+                                                {Number(item.price).toFixed(2)}
                                             </strong>
                                         </div>
                                     ))}
@@ -108,8 +138,6 @@ function Checkout() {
                 </div>
             </div>
         </div>
-
-
     );
 }
 

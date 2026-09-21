@@ -41,7 +41,7 @@ function Login({ user, setUser }) {
         <div className="login-page">
             <div className="login-container">
                 <div className="login-header">
-                    <h2>Welcome Back</h2>
+                    <h2>Welcome</h2>
                     <p>Sign in to continue with your order.</p>
                 </div>
 

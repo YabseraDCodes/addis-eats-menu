@@ -1,23 +1,17 @@
 import { useEffect, useState, useRef, useMemo, useContext } from "react";
 import { Dish } from "./Dish";
-// import { menu } from "./data";
 import { CatagoryBar } from "./CatagoryBar";
 import { DishList } from "./DishList";
-import { OrderForm } from "../checkout/OrderForm";
 import { useFetch } from "../hooks/useFetch";
 import { useSearchParams } from "react-router-dom";
 
 function Menu() {
   const [count, setCount] = useState(0);
   const [total, setTotal] = useState(0);
-  // const [category, setCategory] = useState("ALL");
   //using query
   const [params, setParams] = useSearchParams();
   const category = params.get("category") ?? "ALL";
 
-  // const [menu, setMenu] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
   const searchRef = useRef(null);
 
   const { data, loading, error } = useFetch(
@@ -44,7 +38,7 @@ function Menu() {
    
   return (
     <div>
-      <input className="search-input" ref={searchRef} type="search" />
+      {/* <input className="search-input" ref={searchRef} type="search" /> */}
 
       <CatagoryBar selectedCatagory={category} selectCatagory={setParams} />
 
