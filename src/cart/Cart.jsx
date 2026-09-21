@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { cartContext } from "./CartProvider";
+import useCartStore from "../store/cartStore";
 
 function Cart() {
-    const { cart, dispatch, total } = useContext(cartContext);
+    // const { cart, dispatch, total } = useContext(cartContext);
+    const {cart, total, addItem, removeItem, clearCart} = useCartStore();
 
     return (
         <div className="cart-page">
@@ -52,10 +54,7 @@ function Cart() {
                                         <button
                                             type="button"
                                             onClick={() =>
-                                                dispatch({
-                                                    type: "remove",
-                                                    content: item.id,
-                                                })
+                                                removeItem(item.id)
                                             }
                                         >
                                             Remove
@@ -77,7 +76,7 @@ function Cart() {
                                 <button
                                     type="button"
                                     className="clear-cart-btn"
-                                    onClick={() => dispatch({ type: "clear" })}
+                                    onClick={clearCart}
                                 >
                                     Clear Cart
                                 </button>

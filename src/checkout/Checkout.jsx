@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { cartContext } from "../cart/CartProvider";
 import { useForm } from "react-hook-form";
 import { validate } from "./validate";
+import useCartStore from "../store/cartStore";
 
 function Checkout() {
-    const { cart, total } = useContext(cartContext);
+    // const { cart, total } = useContext(cartContext);
+    const {cart, total} = useCartStore();
 
     const {
         register,

@@ -37,8 +37,7 @@ export function SpecialDish({ specials }) {
 
                 <Link
                   to={`/menu/${dish.id}`}
-                  className="details-link"
-                >
+                  className="details-link">
                   View Dish →
                 </Link>
               </div>
